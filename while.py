@@ -34,48 +34,49 @@
 #         print("Pin erroneo")
 
 
-# def calculadora():
-#  op=0
-# while op!=5:
+def calculadora():
+ op=0
 
-#     print("1.-suma")
-#     print("2.-resta ")
-#     print("3.-multiplicacion")
-#     print("4.-divicion")
-#     print("5.-salir")
-#     print("seleccione una opcion")
+while op!=5:
 
-#     op=int(input())
-#     match op:
-#         case 1:
+    print("1.-suma")
+    print("2.-resta ")
+    print("3.-multiplicacion")
+    print("4.-divicion")
+    print("5.-salir")
+    print("seleccione una opcion")
+
+    op=int(input())
+    match op:
+        case 1:
             
-#             n1=int(input("ingrese el primer  numero: "))
-#             n2=int(input("ingrese el segundo numero: "))
-#             print(f"la suma es: {n1+n2}")
+            n1=int(input("ingrese el primer  numero: "))
+            n2=int(input("ingrese el segundo numero: "))
+            print(f"la suma es: {n1+n2}")
 
-#         case 2:
+        case 2:
            
-#             n1=int(input("ingrese el primer  numero: "))
-#             n2=int(input("ingrese el segundo numero: "))
-#             print(f"la resta es: {n1-n2}")
+            n1=int(input("ingrese el primer  numero: "))
+            n2=int(input("ingrese el segundo numero: "))
+            print(f"la resta es: {n1-n2}")
 
-#         case 3:
-#             n1=int(input("ingrese el primer  numero: "))
-#             n2=int(input("ingrese el segundo numero: "))
-#             print(f"la multiplicacion es: {n1*n2}") 
+        case 3:
+            n1=int(input("ingrese el primer  numero: "))
+            n2=int(input("ingrese el segundo numero: "))
+            print(f"la multiplicacion es: {n1*n2}") 
             
 
-#         case 4:
+        case 4:
 
-#             n1=int(input("ingrese el primer  numero: "))
-#             n2=int(input("ingrese el segundo numero: "))
-#             print(f"la divicion es: {n1/n2}") 
+            n1=int(input("ingrese el primer  numero: "))
+            n2=int(input("ingrese el segundo numero: "))
+            print(f"la divicion es: {n1/n2}") 
 
-#         case 5:
-#            print("saliendo")           
+        case 5:
+           print("saliendo")           
 
-#         case _:
-#             print("opcion invalida")  
+        case _:
+            print("opcion invalida")  
 
 
 
