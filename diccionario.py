@@ -1,114 +1,13 @@
 
 
 
-# vegetales={
-#    1:"Maracuyá",2:"Pera",3:"Cebolla",7:"Papa"
-# }
-
-# print(list(vegetales.keys())[-1])
-
-
-# def agregarVegetales():
-#    print("-"*20)
-#    agregar=input("Ingrese un vegetal: ")
-#    nuevoKey=list(vegetales.keys())[-1]
-#    vegetales[nuevoKey+1]=agregar
-# def mostrarVegetales():
-#    print("-"*40)
-#    for num, nombre in vegetales.items():
-#          print(f"{num}.- {nombre} ")
-# def eliminarVegetal():
-#    mostrarVegetales()
-#    borrar=int(input("Cual vegetal borrará?: "))
-#    del vegetales[borrar]
-# def actualizarVegetal():
-#    mostrarVegetales()
-#    act=int(input("Cual vegetal actualizará?: "))
-#    vegetales[act]=input("Ingrese nuevo nombre: ")
-
-
-# def vegetalesMenu():
-#    while True:
-#       try:
-#          print("-"*20)
-#          print("1.- Agregar Vegetal")
-#          print("2.- Eliminar Vegetal")
-#          print("3.- Actualizar Vegetal")
-#          print("4.- Mostrar Vegetal")
-#          print("5.- comprar")
-#          print("6.- crear boleta y salir")
-#          op=int(input("Seleccione una opcion: "))
-#          match op:
-#                case 1:
-#                   agregarVegetales()
-#                case 2:
-#                   eliminarVegetal()
-#                case 3:
-#                   actualizarVegetal()
-#                case 4:
-#                   mostrarVegetales()
-#                case 5:
-#                   print("comprar")
-#                case 6:
-#                   print("crear coleta y salir")  
-#                   break
-#                case _:
-#                     print("Opcion invalida")  
-#       except Exception as e:
-#          print("Error:",e)
-
-
-# productosDicc={
-
-# 1:{"nombre": "Maracuya", "precio": 3000},
-# 2:{"nombre": "pera", "precio": 1900},
-# 3:{"nombre": "cebolla", "precio":1200}
-# }
-# productosDicc[4]={"nombre": "piña", "precio": 3500 }
-
-# print(productosDicc.keys())
-# # print(list(productosDicc.keys))[-1]    
-# print(productosDicc.values())
-# print(productosDicc.items())
-
-# total=0
-# for p in productosDicc.values():
-#     total=total+p["precio"]
-# print(f"El precio total es: {total}")    
-
-
-
-# def agregarProducto():
-#    print("Cual es el nombre del producto?")
-#    nombre = input()
-#    print("cual es el precio?")
-#    precio = int(input())
-#    nuevoKey=list(productosDicc.keys())[-1]
-#    productosDicc[nuevoKey+1]= {"nombre": nombre, "precio": precio}
-
-
-
-# def MostrarProducto():
-#    for key, producto in productosDicc.items():
-#       print(f"{key} .{producto}")
-# def eliminarProducto():
-#    MostrarProducto()
-#    borrar=int(input("Cual Producto borrará?: "))
-#    del productosDicc[borrar]
-# def actualizarProducto():
-#    MostrarProducto()
-#    num=int(input("¿que producto desea actualiar?"))
-
-
-
-
-
 
 vegetales={
-   1:"Maracuyá",2:"Pera",3:"Cebolla",7:"Papa"
+   1:"Maracuyá",2:"Pera",3:"Cebolla",4:"Papa"
+  
 }
 
-print(list(vegetales.keys())[-1])
+print(list(vegetales.keys()))
 
 
 def agregarVegetales():
@@ -120,10 +19,12 @@ def mostrarVegetales():
    print("-"*40)
    for num, nombre in vegetales.items():
          print(f"{num}.- {nombre} ")
+
 def eliminarVegetal():
    mostrarVegetales()
    borrar=int(input("Cual vegetal borrará?: "))
    del vegetales[borrar]
+   
 def actualizarVegetal():
    mostrarVegetales()
    act=int(input("Cual vegetal actualizará?: "))
@@ -138,6 +39,7 @@ def vegetalesMenu():
          print("3.- Actualizar Vegetal")
          print("4.- Mostrar Vegetal")
          print("5.- comprar")
+         print("6.- crear boleta y salir")
          op=int(input("Seleccione una opcion: "))
          match op:
                case 1:
@@ -149,7 +51,10 @@ def vegetalesMenu():
                case 4:
                   mostrarVegetales()
                case 5:
-                  print("Salir")
+                  comprar()
+                  print(carrito)
+               case 6:
+                  print("nigga")   
                   break
                case _:
                     print("Opcion invalida")  
@@ -165,7 +70,7 @@ productosDicc={
    3:{"nombre": "Cebolla", "precio": 1200}
 }
 
-
+carrito = []
 productosDicc[4]={"nombre": "Piña", "precio": 3500}
 
 
@@ -175,24 +80,46 @@ def agregarProducto():
    nombre = input()
    print("cual es el precio?")
    precio = int(input())
-   nuevoKey=list(productosDicc.keys())[-1]
-   productosDicc[nuevoKey+1]= {"nombre": nombre, "precio": precio}
+   nuevoKey=list(productosDicc.keys())
+   nuevoKey.sort()
+   productosDicc[nuevoKey[-1]+1]= {"nombre": nombre, "precio": precio}
+
 def MostrarProducto():
    for key, producto in productosDicc.items():
       print(f"{key} .{producto}")
+
 def eliminarProducto():
    MostrarProducto()
    borrar=int(input("Cual Producto borrará?: "))
    del productosDicc[borrar]
+
 def actualizarProducto():
-
-
    MostrarProducto()
    num=int(input("Que producto desea actualizar?: "))
+   if num in productosDicc.keys():
+    
+    nombre=input("Cual es el nombre nuevo?: ")
+    precio=int(input("Cual es el precio nuevo?: "))
+    productosDicc[num]={"nombre": nombre, "precio": precio}
+   else:
+      print("producto no existente")
 
-   nombre=input("Cual es el nombre nuevo?: ")
-   precio=int(input("Cual es el precio nuevo?: "))
-   productosDicc[num]={"nombre": nombre, "precio": precio}
+def comprar():
+   MostrarProducto()
+   try:
+      comprar = int(input("ingrese el producto a comprar: "))
+   except Exception as e:
+    if comprar in productosDicc.keys():
+      carrito.append(productosDicc[comprar])
+      print(f"producto agregado")
+    else:
+      print("producto no encontrado")
+
+def Boleta_salir():
+   total=0
+   for producto in productosDicc.values():
+      total += producto["precio"]
+      print(f"El total a pagar es: {total}")      
 
 # print(productosDicc[2]["precio"])  # precio de la pera
 # print(productosDicc[3]["nombre"])  # nombre de la cebolla
@@ -201,44 +128,44 @@ def actualizarProducto():
 #     print(f"{num}.- {veg}")
 
 ##Lista con diccionarios
-productosList=[
-   {"nombre": "Maracuyá", "precio": 3000}, #0
-   {"nombre": "Pera", "precio": 1500},     #1  
-   {"nombre": "Cebolla", "precio": 1200}   #2
-]
+# productosList=[
+#    {"nombre": "Maracuyá", "precio": 3000}, #0
+#    {"nombre": "Pera", "precio": 1500},     #1  
+#    {"nombre": "Cebolla", "precio": 1200}   #2
+# ]
 
-print(productosList[2]["precio"]) #precio de la cebolla
-print(productosList[0]["nombre"]) #nombre de la naracuya
+# print(productosList[2]["precio"]) #precio de la cebolla
+# print(productosList[0]["nombre"]) #nombre de la naracuya
 
 
 
-def vegetalesMenuDiccionario():
-   while True:
-      try:
-         print("-"*20)
-         print("1.- Agregar Vegetal")
-         print("2.- Eliminar Vegetal")
-         print("3.- Actualizar Vegetal")
-         print("4.- Mostrar Vegetal")
-         print("5.- Salir")
-         op=int(input("Seleccione una opcion: "))
-         match op:
-               case 1:
-                  agregarProducto()
-               case 2:
-                  eliminarProducto()
-               case 3:
-                  actualizarProducto()
-               case 4:
-                  MostrarProducto()
-               case 5:
-                  print("Salir")
-                  break
-               case _:
-                    print("Opcion invalida")  
-      except Exception as e:
-         print("Error:",e)
-vegetalesMenuDiccionario()
+# def vegetalesMenuDiccionario():
+#    while True:
+#       try:
+#          print("-"*20)
+#          print("1.- Agregar Vegetal")
+#          print("2.- Eliminar Vegetal")
+#          print("3.- Actualizar Vegetal")
+#          print("4.- Mostrar Vegetal")
+#          print("5.- Salir")
+#          op=int(input("Seleccione una opcion: "))
+#          match op:
+#                case 1:
+#                   agregarProducto()
+#                case 2:
+#                   eliminarProducto()
+#                case 3:
+#                   actualizarProducto()
+#                case 4:
+#                   MostrarProducto()
+#                case 5:
+#                   print("Salir")
+#                   break
+#                case _:
+#                     print("Opcion invalida")  
+#       except Exception as e:
+#          print("Error:",e)
+# vegetalesMenuDiccionario()
 
 #Cambiar la funcion actualizar para que solo 
 # actualice una solo key 
